@@ -14,7 +14,7 @@ const formSchema = z.object({
     name: z.string().min(2).max(50),
     description: z.string().min(2).max(250),
     githubRepo: z.string().min(2).max(50),
-    language: z.string().min(2).max(50),
+    tags: z.string().min(2).max(50),
 })
 
 type FormValues = z.infer<typeof formSchema>
@@ -28,7 +28,7 @@ const CreateRoomForm = () => {
             name: "",
             description: "",
             githubRepo: "",
-            language: "",
+            tags: "",
         },
     });
 
@@ -48,9 +48,9 @@ const CreateRoomForm = () => {
                 <CustomFormField control={formControl} description="Please put a link to the project you are working on" name="githubRepo" label="Github Repo" />
                 <CustomFormField
                     control={formControl}
-                    description="List your programming languages, frameworks, libraries so people can find you content"
-                    name="language"
-                    label="Programming Languages"
+                    description="List your programming tags, frameworks, libraries so people can find you content"
+                    name="tags"
+                    label="Tags"
                 />
                 <Button type="submit">Submit</Button>
             </form>
