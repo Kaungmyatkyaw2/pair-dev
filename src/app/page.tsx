@@ -1,13 +1,13 @@
-import { RoomCard } from '@/components/room';
+import { RoomCard, RoomSearchBar } from '@/components/room';
 import { Button } from '@/components/ui/button';
 import { getRooms } from '@/services/room';
 import { Plus } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
 
-const Home = async () => {
+const Home = async ({ searchParams }: { searchParams: { search: string | undefined } }) => {
 
-  const rooms = await getRooms()
+  const rooms = await getRooms(searchParams.search)
 
   return (
     <div className='container mx-auto p-10'>
@@ -19,6 +19,7 @@ const Home = async () => {
           </Link>
         </Button>
       </div>
+      <RoomSearchBar />
       <div className='flex gap-8 flex-wrap'>
         {
           rooms.map(el => <RoomCard room={el} key={el.id} />)

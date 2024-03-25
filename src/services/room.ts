@@ -1,11 +1,12 @@
 import { db } from "@/db";
 import { rooms } from "@/db/schema";
-import { eq } from "drizzle-orm";
+import { eq, like } from "drizzle-orm";
 import { unstable_noStore } from "next/cache";
 
-export async function getRooms() {
+export async function getRooms(search: string | undefined) {
   unstable_noStore();
-  const items = await db.query.rooms.findMany();
+  const where = search ? like(rooms.tags, `%${search}%`) : undefined;
+  const items = await db.query.rooms.findMany({ where });
 
   return items;
 }

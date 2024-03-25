@@ -1,6 +1,7 @@
 import { RoomVideoPlayer } from '@/components/room/RoomVideoPlayer'
-import { TagsList, splitTagString } from '@/components/tags'
+import { TagsList } from '@/components/tags'
 import { Button } from '@/components/ui/button'
+import { splitTagString } from '@/lib/utils'
 import { getRoomById } from '@/services/room'
 import { Github } from 'lucide-react'
 import Link from 'next/link'
@@ -22,12 +23,12 @@ const RoomPage = async ({ params }: Props) => {
   return (
     <div className='container mx-auto '>
       <div className='grid grid-cols-6 h-screen py-5 gap-4'>
-        <div className='col-span-4'>
+        <div className='md:col-span-4 col-span-6'>
           <div className='rounded-sm border bg-card text-card-foreground shadow-sm p-4'>
             <RoomVideoPlayer room={room} />
           </div>
         </div>
-        <div className='col-span-2'>
+        <div className='md:col-span-2 col-span-6 md:mb-0 mb-4'>
           <div className='rounded-sm border bg-card text-card-foreground shadow-sm p-4 space-y-2'>
             <h1 className='font-bold'>{room.name}</h1>
             <p className='text-sm text-gray-500'>{room.description}</p>

@@ -17,7 +17,9 @@ const AccountDropDown = () => {
     const { data: session } = useSession()
 
     const handleSignOut = () => {
-        signOut()
+        signOut({
+            callbackUrl: "/"
+        })
     }
 
 

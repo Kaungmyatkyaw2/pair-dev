@@ -12,7 +12,8 @@ import {
 import { Room } from "@/db/schema"
 import { ChevronRight, Github } from "lucide-react"
 import Link from "next/link"
-import { TagsList, splitTagString } from "../tags"
+import { TagsList } from "../tags"
+import { splitTagString } from "@/lib/utils"
 
 
 interface Props {
