@@ -22,12 +22,12 @@ export const RoomSearchBar = () => {
     }
 
     const handleClear = () => {
-        router.push("/")
+        router.push("/rooms")
         setSearchText("")
     }
 
     return (
-        <form onSubmit={handleSearch} className="flex md:flex-nowrap flex-wrap max-w-full md:w-[600px] items-center gap-4 mb-10">
+        <form onSubmit={handleSearch} className="flex md:flex-nowrap flex-wrap max-w-full md:w-[600px] items-center gap-4">
             <Input value={searchText} onChange={(e) => setSearchText(e.target.value)} type="text" placeholder="Search room by keyword such as typescript,python,etc.." />
             <Button type="submit"><Search className='mr-2 h-4 w-4' />Search</Button>
             {

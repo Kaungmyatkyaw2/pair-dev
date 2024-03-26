@@ -7,9 +7,10 @@ import React, { useState } from 'react'
 import { Form } from "@/components/ui/form"
 import { CustomFormField } from "@/components/form"
 import { Button } from "@/components/ui/button"
-import { createRoomAction } from "./actions"
 import { useRouter } from "next/navigation"
-import { useToast } from "@/components/ui/use-toast"
+import { Room } from "@/db/schema"
+import { editRoomAction } from "./action"
+import { toast } from "@/components/ui/use-toast";
 import { RotateCcw } from "lucide-react"
 
 const formSchema = z.object({
@@ -20,19 +21,18 @@ const formSchema = z.object({
 })
 
 type FormValues = z.infer<typeof formSchema>
-const CreateRoomForm = () => {
+const EditRoomForm = ({ room }: { room: Room }) => {
 
     const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
-    const { toast } = useToast()
 
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            name: "",
-            description: "",
-            githubRepo: "",
-            tags: "",
+            name: room.name,
+            description: room.description,
+            githubRepo: room.githubRepo as string | undefined,
+            tags: room.tags,
         },
     });
 
@@ -42,16 +42,16 @@ const CreateRoomForm = () => {
     async function onSubmit(values: FormValues) {
         try {
             setIsLoading(true)
-            const room = await createRoomAction(values)
-            router.push(`/rooms/${room.id}`)
+            await editRoomAction(room.id, values)
+            router.push("/my-rooms")
             toast({
-                title: "Created Room",
-                description: "You are successfully created the room",
+                title: "Updated Room",
+                description: "You are successfully updated the room",
             })
         } catch (error) {
             toast({
-                title: "Failed to create the room",
-                description: "You are failed to create the room",
+                title: "Failed to update the room",
+                description: "You are failed to update the room",
                 variant: "destructive"
             })
         } finally {
@@ -83,4 +83,4 @@ const CreateRoomForm = () => {
     )
 }
 
-export default CreateRoomForm
+export default EditRoomForm

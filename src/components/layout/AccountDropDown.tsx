@@ -11,10 +11,12 @@ import { signOut, useSession } from 'next-auth/react'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { LogOut } from 'lucide-react'
 import { Button } from '../ui/button'
+import { useRouter } from 'next/navigation'
 
 const AccountDropDown = () => {
 
     const { data: session } = useSession()
+    const router = useRouter()
 
     const handleSignOut = () => {
         signOut({
@@ -41,7 +43,6 @@ const AccountDropDown = () => {
                     <LogOut className='mr-3' size={18} />
                     Logout
                 </DropdownMenuItem>
-
             </DropdownMenuContent>
         </DropdownMenu>
     )

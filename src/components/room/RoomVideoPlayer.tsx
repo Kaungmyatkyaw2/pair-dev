@@ -80,7 +80,7 @@ export const RoomVideoPlayer = ({ room }: Props) => {
                     <SpeakerLayout />
                     <CallControls onLeave={() => {
                         client.disconnectUser()
-                        router.push("/")
+                        router.push("/rooms")
                     }} />
                     <CallParticipantsList onClose={() => undefined} />
                 </StreamCall>

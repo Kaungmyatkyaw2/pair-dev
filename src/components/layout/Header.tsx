@@ -19,7 +19,7 @@ export const Header = () => {
 
 
     return (
-        <header className='container mx-auto bg-gray-100 dark:bg-gray-900'>
+        <header className='container mx-auto  bg-white/30 dark:bg-slate-800/30  z-[9] backdrop-blur-sm border-b shadow-sm'>
             <div className='w-full flex items-center justify-between py-4'>
                 <h1 className='font-bold text-xl'>PairDev</h1>
                 <div className='flex items-center gap-4'>

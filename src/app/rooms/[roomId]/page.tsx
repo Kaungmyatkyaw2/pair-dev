@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { splitTagString } from '@/lib/utils'
 import { getRoomById } from '@/services/room'
 import { Github } from 'lucide-react'
+import { unstable_noStore } from 'next/cache'
 import Link from 'next/link'
 import React from 'react'
 
@@ -12,6 +13,7 @@ interface Props {
 }
 
 const RoomPage = async ({ params }: Props) => {
+  unstable_noStore();
   const roomId = params.roomId
 
   const room = await getRoomById(roomId)
@@ -21,7 +23,7 @@ const RoomPage = async ({ params }: Props) => {
   }
 
   return (
-    <div className='container mx-auto '>
+    <div>
       <div className='grid grid-cols-6 h-screen py-5 gap-4'>
         <div className='md:col-span-4 col-span-6'>
           <div className='rounded-sm border bg-card text-card-foreground shadow-sm p-4'>
