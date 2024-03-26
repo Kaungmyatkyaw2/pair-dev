@@ -6,11 +6,14 @@ import {
     Call,
     CallControls,
     CallParticipantsList,
+    CallState,
+    CallingState,
     SpeakerLayout,
     StreamCall,
     StreamTheme,
     StreamVideo,
     StreamVideoClient,
+    useCallStateHooks,
 } from "@stream-io/video-react-sdk";
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
@@ -40,7 +43,7 @@ export const RoomVideoPlayer = ({ room }: Props) => {
         }
 
 
-        const client = new StreamVideoClient({
+        const clientInstance = new StreamVideoClient({
             apiKey: apiKey!,
             user: {
                 id: session.user.id,
@@ -52,25 +55,26 @@ export const RoomVideoPlayer = ({ room }: Props) => {
                 timeout: 6000
             }
         });
-        const call = client.call('default', room.id);
-        call.join({ create: true });
+        const callInstace = clientInstance.call('default', room.id);
+        callInstace.join({ create: true });
 
-        setClient(client)
-        setCall(call)
+        setClient(clientInstance)
+        setCall(callInstace)
 
 
         return () => {
-            call
+            callInstace
                 .leave()
-                .then(() => client.disconnectUser())
+                .then(() => clientInstance.disconnectUser())
                 .catch(console.error);
         };
-    }, [session, room])
+    }, [session?.user.id, room.id])
 
 
+    const { useCallState } = useCallStateHooks()
 
     if (!client || !call) {
-        return <h1>Something went wrong try again later</h1>
+        return <h1>Loading....</h1>
     }
 
     return (
@@ -78,10 +82,12 @@ export const RoomVideoPlayer = ({ room }: Props) => {
             <StreamTheme>
                 <StreamCall call={call}>
                     <SpeakerLayout />
-                    <CallControls onLeave={() => {
-                        client.disconnectUser()
-                        router.push("/rooms")
-                    }} />
+                    <div className="w-full overflow-x-scroll">
+                        <CallControls onLeave={() => {
+                            client.disconnectUser()
+                            router.push("/rooms")
+                        }} />
+                    </div>
                     <CallParticipantsList onClose={() => undefined} />
                 </StreamCall>
             </StreamTheme>

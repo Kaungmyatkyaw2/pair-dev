@@ -16,7 +16,6 @@ export async function editRoomAction(
   }
 
   const room = await getRoomById(roomId);
-  console.log(room?.userId, session.user.id);
 
   if (room?.userId !== session.user.id) {
     throw new Error("You can't edit other people's rooms.");
