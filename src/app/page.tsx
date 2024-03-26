@@ -38,7 +38,7 @@ export default function Example() {
                             random developers online so that you can work together
                         </p>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
-                            <Button asChild>
+                            <Button aria-label="get-start" asChild>
                                 <Link
                                     href="/rooms"
                                 >

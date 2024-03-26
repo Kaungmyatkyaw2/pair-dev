@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Pair Dev",
   description: "An application to pair with random dev who are working on same path.",
   icons: {
-    icon: "/icon.png",
+    icon: "/icon.svg",
   },
 };
 

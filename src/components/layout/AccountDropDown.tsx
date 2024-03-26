@@ -32,7 +32,7 @@ const AccountDropDown = () => {
                 <DropdownMenuTrigger>
                     <Button variant={"secondary"}>
                         <Avatar className='w-[35px] h-[35px] md:mr-2'>
-                            <AvatarImage src={session?.user.image as string} />
+                            <AvatarImage alt='profile picture' src={session?.user.image as string} />
                             <AvatarFallback>{session?.user.name}</AvatarFallback>
                         </Avatar>
                         <span className='md:flex hidden'>
