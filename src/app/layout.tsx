@@ -30,8 +30,8 @@ export default function RootLayout({
           <Toaster />
           <NextTopLoader />
           <Header />
-          <div className="">{children}</div>
-          <Footer />
+          <div className="container mx-auto">{children}</div>
+          <Footer/>
         </ProvidersWrapper>
 
       </body>
