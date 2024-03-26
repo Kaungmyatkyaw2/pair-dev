@@ -32,7 +32,9 @@ export const Header = () => {
                         session ?
                             <AccountDropDown />
                             :
-                            <Button onClick={handleSignIn}>
+                            <Button
+                                aria-label="signin"
+                                onClick={handleSignIn}>
                                 Sign In
                             </Button>
                     }

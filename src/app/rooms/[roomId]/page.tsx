@@ -39,7 +39,7 @@ const RoomPage = async ({ params }: Props) => {
                 <TagsList tags={splitTagString(room.tags)} />
               </div>
               {room.githubRepo &&
-                <Button className='w-full' variant={"secondary"} asChild>
+                <Button aria-label='to-github' className='w-full' variant={"secondary"} asChild>
                   <Link target='_blank' href={room.githubRepo}>
                     <Github className="mr-2 h-4 w-4" /> View Code
                   </Link>

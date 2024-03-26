@@ -21,12 +21,12 @@ const Home = async ({ searchParams }: { searchParams: { search: string | undefin
 
           {session &&
             <>
-              <Button variant={"outline"} asChild>
+              <Button aria-label='to-my-rooms' variant={"outline"} asChild>
                 <Link href='/my-rooms'>
                   <MonitorPlay className="mr-2 h-4 w-4" /> My Rooms
                 </Link>
               </Button>
-              <Button asChild>
+              <Button aria-label='to-create-room' asChild>
                 <Link href='/create-room'>
                   <Plus className="mr-2 h-4 w-4" /> Create Room
                 </Link>

@@ -71,7 +71,7 @@ const EditRoomForm = ({ room }: { room: Room }) => {
                     name="tags"
                     label="Tags"
                 />
-                <Button type="submit" disabled={isLoading}>
+                <Button aria-label="edit-form-submit" type="submit" disabled={isLoading}>
                     {
                         isLoading &&
                         <RotateCcw className="mr-2 h-4 w-4 animate-spin" />

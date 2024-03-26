@@ -52,6 +52,7 @@ export function AccountDeleteDialog({ open, setOpen }: Props) {
                 <AlertDialogFooter>
                     <AlertDialogCancel disabled={isLoading}>Cancel</AlertDialogCancel>
                     <Button
+                        aria-label="delete-account-submit"
                         className={cn(buttonVariants())}
                         role="button"
                         disabled={isLoading}

@@ -29,10 +29,10 @@ export const RoomSearchBar = () => {
     return (
         <form onSubmit={handleSearch} className="flex md:flex-nowrap flex-wrap max-w-full md:w-[600px] items-center gap-4">
             <Input value={searchText} onChange={(e) => setSearchText(e.target.value)} type="text" placeholder="Search room by keyword such as typescript,python,etc.." />
-            <Button type="submit"><Search className='mr-2 h-4 w-4' />Search</Button>
+            <Button aria-label="search-btn" type="submit"><Search className='mr-2 h-4 w-4' />Search</Button>
             {
                 searchText &&
-                <Button type="button" variant={"link"} onClick={handleClear}>Clear</Button>
+                <Button aria-label='clear-search' type="button" variant={"link"} onClick={handleClear}>Clear</Button>
             }
         </form>
     )

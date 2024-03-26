@@ -19,7 +19,7 @@ const EditRoom = async ({ params }: { params: { roomId: string } }) => {
 
             <div className='flex items-center justify-between'>
                 <h1 className='font-bold text-4xl'>Edit Room</h1>
-                <Button size="icon" variant={"outline"} asChild>
+                <Button aria-label='back-to-home' size="icon" variant={"outline"} asChild>
                     <Link href='/rooms'>
                         <HomeIcon className="h-4 w-4" />
                     </Link>

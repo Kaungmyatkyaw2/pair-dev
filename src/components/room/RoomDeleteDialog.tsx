@@ -41,19 +41,20 @@ export function RoomDeleteDialog({ room }: Props) {
     return (
         <AlertDialog open={open} onOpenChange={!isLoading ? setOpen : undefined}>
             <AlertDialogTrigger asChild>
-                <Button onClick={() => { setOpen(true) }} size={"icon"} variant={"destructive"}><Trash className="h-4 w-4" /></Button>
+                <Button aria-label="delete-room" onClick={() => { setOpen(true) }} size={"icon"} variant={"destructive"}><Trash className="h-4 w-4" /></Button>
             </AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
                     <AlertDialogDescription>
                         This action cannot be undone. This will permanently delete your
-                        account and remove your data from our servers.
+                        room.
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                     <AlertDialogCancel disabled={isLoading}>Cancel</AlertDialogCancel>
                     <Button
+                        aria-label="delete-room"
                         className={cn(buttonVariants())}
                         role="button"
                         disabled={isLoading}

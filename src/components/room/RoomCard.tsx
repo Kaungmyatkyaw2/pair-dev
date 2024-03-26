@@ -29,7 +29,7 @@ export function RoomCard({ room, showActionBtns }: Props) {
                 {showActionBtns &&
                     <div className="flex gap-2 justify-end mb-2">
                         <RoomDeleteDialog room={room} />
-                        <Button size={"icon"} className="bg-blue-800 hover:bg-blue-900" variant={"destructive"} asChild>
+                        <Button aria-label="to-edit-room" size={"icon"} className="bg-blue-800 hover:bg-blue-900" variant={"destructive"} asChild>
                             <Link href={`/edit-room/${room.id}`}>
                                 <Pen className="h-4 w-4" />
                             </Link>
@@ -45,14 +45,14 @@ export function RoomCard({ room, showActionBtns }: Props) {
 
             </CardContent>
             <CardFooter className="flex justify-between">
-                <Button asChild>
+                <Button aria-label="join-room" asChild>
                     <Link href={`/rooms/${room.id}`}>
                         Join <ChevronRight className="ml-2 h-4 w-4" />
                     </Link>
                 </Button>
                 {
                     room.githubRepo &&
-                    <Button size={"icon"} variant={"outline"} asChild><Link href={room.githubRepo} target="_blank"><Github className="h-5 w-5" /></Link></Button>
+                    <Button aria-label="to-github" size={"icon"} variant={"outline"} asChild><Link href={room.githubRepo} target="_blank"><Github className="h-5 w-5" /></Link></Button>
                 }
             </CardFooter>
         </Card>

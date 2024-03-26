@@ -19,7 +19,7 @@ export default function Example() {
                         }}
                     />
                 </div>
-                <div className="mx-auto max-w-2xl sm:h-[80vh] h-[90vh] flex flex-col justify-center">
+                <div className="mx-auto max-w-2xl h-[90vh] flex flex-col justify-center">
                     <div className="mb-6 flex justify-center">
                         <div className="relative rounded-full px-3 py-1 sm:text-sm text-[12px] leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:ring-gray-500 hover:ring-gray-200">
                             Platofrm to help developer to {" "}

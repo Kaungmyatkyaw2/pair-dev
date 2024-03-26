@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ProvidersWrapper from "@/components/provider/ProvidersWrapper";
-import { Header } from "@/components/layout";
+import { Footer, Header } from "@/components/layout";
 import NextTopLoader from 'nextjs-toploader';
 import { Toaster } from "@/components/ui/toaster";
 
@@ -31,6 +31,7 @@ export default function RootLayout({
           <NextTopLoader />
           <Header />
           <div className="container mx-auto">{children}</div>
+          <Footer />
         </ProvidersWrapper>
 
       </body>

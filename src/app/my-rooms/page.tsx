@@ -16,12 +16,12 @@ const Home = async () => {
             <div className='flex justify-between items-center mb-10'>
                 <h1 className='font-bold text-2xl'>My Rooms</h1>
                 <div className='flex gap-2 items-center'>
-                    <Button size="icon" variant={"outline"} asChild>
+                    <Button aria-label='back-to-home' size="icon" variant={"outline"} asChild>
                         <Link href='/rooms'>
                             <HomeIcon className="h-4 w-4" />
                         </Link>
                     </Button>
-                    <Button asChild>
+                    <Button aria-label='to-create-room' asChild>
                         <Link href='/create-room'>
                             <Plus className="mr-2 h-4 w-4" /> Create Room
                         </Link>

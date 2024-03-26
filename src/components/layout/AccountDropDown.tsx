@@ -30,7 +30,10 @@ const AccountDropDown = () => {
             <AccountDeleteDialog setOpen={setOpenDelAcc} open={openDelAcc} />
             <DropdownMenu>
                 <DropdownMenuTrigger>
-                    <Button variant={"secondary"}>
+                    <Button
+                        aria-label="profile-drop-down"
+                        variant={"secondary"}
+                        >
                         <Avatar className='w-[35px] h-[35px] md:mr-2'>
                             <AvatarImage alt='profile picture' src={session?.user.image as string} />
                             <AvatarFallback>{session?.user.name}</AvatarFallback>
