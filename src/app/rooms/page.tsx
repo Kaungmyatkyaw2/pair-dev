@@ -1,9 +1,10 @@
-import { RoomCard, RoomSearchBar } from '@/components/room';
+import { NoRoomsPlaceHolder, RoomCard, RoomSearchBar } from '@/components/room';
 import { Button } from '@/components/ui/button';
 import { getSession } from '@/lib/auth';
 import { getRooms } from '@/services/room';
 import { MonitorPlay, Plus } from 'lucide-react';
 import { unstable_noStore } from 'next/cache';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
@@ -40,6 +41,10 @@ const Home = async ({ searchParams }: { searchParams: { search: string | undefin
       <div className='flex gap-8 flex-wrap'>
         {
           rooms.map(el => <RoomCard room={el} key={el.id} />)
+        }
+        {
+          rooms.length == 0 &&
+          <NoRoomsPlaceHolder />
         }
       </div>
     </div>

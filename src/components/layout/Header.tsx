@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { ThemeModeToggler } from '../theme'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 import { Button } from '../ui/button'
 import AccountDropDown from './AccountDropDown'
 
@@ -19,8 +19,8 @@ export const Header = () => {
 
 
     return (
-        <header className='container mx-auto  bg-white/30 dark:bg-slate-800/30  z-[9] backdrop-blur-sm border-b shadow-sm'>
-            <div className='w-full flex items-center justify-between py-4'>
+        <header className='container mx-auto  bg-white/30 dark:bg-slate-800/30  z-[100] backdrop-blur-sm border-b shadow-sm'>
+            <div className='w-full flex items-center justify-between py-4  z-[100]'>
                 <h1 className='font-bold text-xl'>PairDev</h1>
                 <div className='flex items-center gap-4'>
                     {
