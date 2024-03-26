@@ -12,7 +12,7 @@ const Home = async () => {
     const rooms = await getMyRooms()
 
     return (
-        <div className='p-10'>
+        <div className='md:px-10 py-10'>
             <div className='flex justify-between items-center mb-10'>
                 <h1 className='font-bold text-2xl'>My Rooms</h1>
                 <div className='flex gap-2 items-center'>

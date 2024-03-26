@@ -24,7 +24,7 @@ const RoomPage = async ({ params }: Props) => {
 
   return (
     <div>
-      <div className='grid grid-cols-6 h-screen py-5 gap-4'>
+      <div className='grid grid-cols-6 h-screen py-5 md:px-10 gap-4'>
         <div className='md:col-span-4 col-span-6'>
           <div className='rounded-sm border bg-card text-card-foreground shadow-sm p-4'>
             <RoomVideoPlayer room={room} />
