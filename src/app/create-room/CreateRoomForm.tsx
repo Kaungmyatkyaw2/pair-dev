@@ -14,9 +14,9 @@ import { RotateCcw } from "lucide-react"
 
 const formSchema = z.object({
     name: z.string().min(2).max(50),
-    description: z.string().min(2).max(250),
-    githubRepo: z.string().min(2).max(50),
-    tags: z.string().min(2).max(50),
+    description: z.string().min(10).max(250),
+    githubRepo: z.string().min(10).max(250).startsWith("github.com"),
+    tags: z.string().min(2).max(250),
 })
 
 type FormValues = z.infer<typeof formSchema>

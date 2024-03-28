@@ -1,3 +1,4 @@
+import RoomChat from '@/components/room/RoomChat'
 import { RoomVideoPlayer } from '@/components/room/RoomVideoPlayer'
 import { TagsList } from '@/components/tags'
 import { Button } from '@/components/ui/button'
@@ -31,7 +32,10 @@ const RoomPage = async ({ params }: Props) => {
           </div>
         </div>
         <div className='md:col-span-2 col-span-6 md:mb-0 mb-4'>
-          <div className='rounded-sm border bg-card text-card-foreground shadow-sm p-4 space-y-2'>
+
+
+          <RoomChat room={room} />
+          <div className='rounded-sm border bg-card text-card-foreground shadow-sm p-4 mt-4 space-y-2'>
             <h1 className='font-bold'>{room.name}</h1>
             <p className='text-sm text-gray-500'>{room.description}</p>
             <div className='pt-2 space-y-4'>
@@ -47,6 +51,7 @@ const RoomPage = async ({ params }: Props) => {
               }
             </div>
           </div>
+
         </div>
       </div>
     </div>

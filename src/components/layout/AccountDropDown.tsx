@@ -30,18 +30,17 @@ const AccountDropDown = () => {
             <AccountDeleteDialog setOpen={setOpenDelAcc} open={openDelAcc} />
             <DropdownMenu>
                 <DropdownMenuTrigger>
-                    <Button
-                        aria-label="profile-drop-down"
-                        variant={"secondary"}
-                        >
+                    <div
+                        className='flex items-center px-4 p-2 border rounded-[6px] bg-slate-100 dark:bg-slate-800'
+                    >
                         <Avatar className='w-[35px] h-[35px] md:mr-2'>
                             <AvatarImage alt='profile picture' src={session?.user.image as string} />
                             <AvatarFallback>{session?.user.name}</AvatarFallback>
                         </Avatar>
-                        <span className='md:flex hidden'>
+                        <span className='md:flex hidden text-sm'>
                             {session?.user.name}
                         </span>
-                    </Button>
+                    </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                     <DropdownMenuItem onClick={handleSignOut} className='cursor-pointer'>
