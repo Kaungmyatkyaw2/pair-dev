@@ -56,9 +56,9 @@ const CustomMessage = () => {
                     {message.text}
                 </p>
                 <div className='mt-3'>
-                    {message.attachments?.map(el => el.type == "image" ?
-                        <img src={el.image_url} alt="msg-attachment" /> :
-                        <Button variant={"outline"} asChild>
+                    {message.attachments?.map((el, idx) => el.type == "image" ?
+                        <img key={idx} src={el.image_url} alt="msg-attachment" /> :
+                        <Button key={idx} variant={"outline"} asChild>
                             <a href={el.asset_url} target="_blank" rel="noopener noreferrer">
                                 <Download className='mr-2 h-4 w-4' /> {el.title}
                             </a>
