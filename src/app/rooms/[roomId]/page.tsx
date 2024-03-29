@@ -1,5 +1,4 @@
-import RoomChat from '@/components/room/RoomChat'
-import { RoomVideoPlayer } from '@/components/room/RoomVideoPlayer'
+import { RoomChat, RoomVideoPlayer } from '@/components/room'
 import { TagsList } from '@/components/tags'
 import { Button } from '@/components/ui/button'
 import { splitTagString } from '@/lib/utils'
