@@ -15,6 +15,8 @@ import {
 } from 'stream-chat-react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { useTheme } from "next-themes"
+import { Button } from '../ui/button';
+import { Download } from 'lucide-react';
 
 
 
@@ -26,21 +28,43 @@ interface Props {
 
 const apiKey = process.env.NEXT_PUBLIC_GET_STREAM_API_KEY
 
+
+function formatDateTo12Hour(date: Date) {
+    let hours = date.getHours();
+    let minutes = date.getMinutes().toString().padStart(2, '0');
+    let suffix = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12 || 12;
+    return `${hours}:${minutes} ${suffix}`;
+}
+
+
 const CustomMessage = () => {
     const { message } = useMessageContext();
+    const dateTimeStamp = Date.parse(message.created_at as string)
+    const formattedCreatedAt = formatDateTo12Hour(new Date(dateTimeStamp))
     return (
-        <div className='flex items-center gap-2 mb-6'>
+        <div className='flex items-start gap-2 mb-6'>
             <Avatar className='w-[55px] h-[55px] md:mr-2'>
                 <AvatarImage alt='profile picture' src={message.user?.image} />
                 <AvatarFallback>{message.user?.name?.substring(0, 2)}</AvatarFallback>
             </Avatar>
-            <div className='space-y-[2px]'>
-                <h2 className='font-bold'>
-                    {message.user?.name}
+            <div>
+                <h2 className='font-bold mb-1'>
+                    {message.user?.name} <span className='text-gray-400 text-[12px] ml-2'>{formattedCreatedAt}</span>
                 </h2>
-                <span className='text-sm'>
+                <p className='text-sm'>
                     {message.text}
-                </span>
+                </p>
+                <div className='mt-3'>
+                    {message.attachments?.map(el => el.type == "image" ?
+                        <img src={el.image_url} alt="msg-attachment" /> :
+                        <Button variant={"outline"} asChild>
+                            <a href={el.asset_url} target="_blank" rel="noopener noreferrer">
+                                <Download className='mr-2 h-4 w-4' /> {el.title}
+                            </a>
+                        </Button>
+                    )}
+                </div>
             </div>
         </div>
     );
@@ -102,7 +126,7 @@ const RoomChat = ({ room }: Props) => {
 
 
     if (!chatClient || !channel) {
-        return <h1>Something comming</h1>
+        return <h1>Loading chat....</h1>
     }
 
     return (
