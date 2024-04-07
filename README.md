@@ -10,6 +10,12 @@ PairDev stands as a groundbreaking platform revolutionizing the way developers c
 
 3. **Real-Time Chat Room**: PairDev offers a real-time chat room where developers can communicate efficiently while working together. Whether it's discussing project requirements or sharing insights, the chat room ensures seamless communication.
 
+4. **Video Streaming**: PairDev enables developers to engage in real-time video streaming, enhancing communication and collaboration by providing a face-to-face interaction experience.
+
+5. **Authentication with NextAuth**: PairDev integrates NextAuth for seamless authentication, ensuring secure access to the platform's features and functionalities.
+
+6. **CRUD Room**: PairDev provides CRUD (Create, Read, Update, Delete) functionality for rooms, allowing developers to manage their collaboration spaces effortlessly.
+
 ## Key Technologies:
 
 - **Next.js 14**: The project is built using Next.js 14, harnessing the latest advancements in web development to ensure optimal performance and scalability.
@@ -21,6 +27,8 @@ PairDev stands as a groundbreaking platform revolutionizing the way developers c
 - **PostgreSQL**: PostgreSQL serves as the database management system, offering a secure and scalable solution for storing and managing project data.
 
 - **Stream.io for Real-Time Video and Text Chat**: Integrating Stream.io adds powerful real-time communication features to PairDev, including video and text chat functionalities, fostering seamless collaboration among developers.
+
+- **NextAuth for Authentication**: NextAuth is integrated for secure authentication, ensuring that users can access PairDev's features with ease while maintaining security standards.
 
 - **Shadcn and Tailwind for Styling**: Styling is accomplished using Shadcn and Tailwind, ensuring a visually appealing and user-friendly interface for an enhanced user experience.
 
