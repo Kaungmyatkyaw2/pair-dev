@@ -4,21 +4,15 @@ import "@stream-io/video-react-sdk/dist/css/styles.css"
 import { Room } from '@/db/schema';
 import {
     Call,
-    CallControls,
-    CallParticipantsList,
-    CallState,
-    CallingState,
-    SpeakerLayout,
     StreamCall,
     StreamTheme,
     StreamVideo,
     StreamVideoClient,
-    useCallStateHooks,
 } from "@stream-io/video-react-sdk";
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { generateStreamToken } from "@/services/stream";
-import { useRouter } from "next/navigation";
+import InnerCallVideoPlayer from "./InnerCallVideoPlayer";
 
 const apiKey = process.env.NEXT_PUBLIC_GET_STREAM_API_KEY
 
@@ -32,7 +26,6 @@ export const RoomVideoPlayer = ({ room }: Props) => {
     const { data: session } = useSession()
     const [client, setClient] = useState<StreamVideoClient | null>(null)
     const [call, setCall] = useState<Call | null>(null)
-    const router = useRouter()
 
 
     useEffect(() => {
@@ -71,7 +64,8 @@ export const RoomVideoPlayer = ({ room }: Props) => {
     }, [session?.user.id, room.id])
 
 
-    const { useCallState } = useCallStateHooks()
+
+
 
     if (!client || !call) {
         return <h1>Loading....</h1>
@@ -81,14 +75,7 @@ export const RoomVideoPlayer = ({ room }: Props) => {
         <StreamVideo client={client}>
             <StreamTheme>
                 <StreamCall call={call}>
-                    <SpeakerLayout />
-                    <div className="w-full overflow-x-scroll">
-                        <CallControls onLeave={() => {
-                            client.disconnectUser()
-                            router.push("/rooms")
-                        }} />
-                    </div>
-                    <CallParticipantsList onClose={() => undefined} />
+                    <InnerCallVideoPlayer client={client} />
                 </StreamCall>
             </StreamTheme>
         </StreamVideo>
