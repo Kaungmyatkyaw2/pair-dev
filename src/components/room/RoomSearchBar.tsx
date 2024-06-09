@@ -17,7 +17,7 @@ export const RoomSearchBar = () => {
         e.preventDefault()
 
         if (searchText) {
-            router.push(`/?search=${searchText}`)
+            router.push(`/rooms/?search=${searchText}`)
         }
     }
 
